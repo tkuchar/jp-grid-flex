@@ -1,0 +1,402 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+/* CSS VARIABLES */
+
+:root {
+    --box-color: #9cb5cd;
+    --text-box-text: 1.2rem;
+}
+
+body {
+    display: grid;
+    grid-template-columns: [sidebar] 10rem repeat(7, 1fr);
+    grid-template-rows: repeat(16, 6.25vh);
+    overflow: hidden;
+    font-size: 1.4rem;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    grid-area: 1 / sidebar / -1 / sidebar;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 28" width="56" height="28"%3E%3Cpath fill="red" fill-opacity="0.3" d="M56 26v2h-7.75c2.3-1.27 4.94-2 7.75-2zm-26 2a2 2 0 1 0-4 0h-4.09A25.98 25.98 0 0 0 0 16v-2c.67 0 1.34.02 2 .07V14a2 2 0 0 0-2-2v-2a4 4 0 0 1 3.98 3.6 28.09 28.09 0 0 1 2.8-3.86A8 8 0 0 0 0 6V4a9.99 9.99 0 0 1 8.17 4.23c.94-.95 1.96-1.83 3.03-2.63A13.98 13.98 0 0 0 0 0h7.75c2 1.1 3.73 2.63 5.1 4.45 1.12-.72 2.3-1.37 3.53-1.93A20.1 20.1 0 0 0 14.28 0h2.7c.45.56.88 1.14 1.29 1.74 1.3-.48 2.63-.87 4-1.15-.11-.2-.23-.4-.36-.59H26v.07a28.4 28.4 0 0 1 4 0V0h4.09l-.37.59c1.38.28 2.72.67 4.01 1.15.4-.6.84-1.18 1.3-1.74h2.69a20.1 20.1 0 0 0-2.1 2.52c1.23.56 2.41 1.2 3.54 1.93A16.08 16.08 0 0 1 48.25 0H56c-4.58 0-8.65 2.2-11.2 5.6 1.07.8 2.09 1.68 3.03 2.63A9.99 9.99 0 0 1 56 4v2a8 8 0 0 0-6.77 3.74c1.03 1.2 1.97 2.5 2.79 3.86A4 4 0 0 1 56 10v2a2 2 0 0 0-2 2.07 28.4 28.4 0 0 1 2-.07v2c-9.2 0-17.3 4.78-21.91 12H30zM7.75 28H0v-2c2.81 0 5.46.73 7.75 2zM56 20v2c-5.6 0-10.65 2.3-14.28 6h-2.7c4.04-4.89 10.15-8 16.98-8zm-39.03 8h-2.69C10.65 24.3 5.6 22 0 22v-2c6.83 0 12.94 3.11 16.97 8zm15.01-.4a28.09 28.09 0 0 1 2.8-3.86 8 8 0 0 0-13.55 0c1.03 1.2 1.97 2.5 2.79 3.86a4 4 0 0 1 7.96 0zm14.29-11.86c1.3-.48 2.63-.87 4-1.15a25.99 25.99 0 0 0-44.55 0c1.38.28 2.72.67 4.01 1.15a21.98 21.98 0 0 1 36.54 0zm-5.43 2.71c1.13-.72 2.3-1.37 3.54-1.93a19.98 19.98 0 0 0-32.76 0c1.23.56 2.41 1.2 3.54 1.93a15.98 15.98 0 0 1 25.68 0zm-4.67 3.78c.94-.95 1.96-1.83 3.03-2.63a13.98 13.98 0 0 0-22.4 0c1.07.8 2.09 1.68 3.03 2.63a9.99 9.99 0 0 1 16.34 0z"%3E%3C/path%3E%3C/svg%3E');
+    background-color: dodgerblue;
+}
+
+.sidebar__box {
+    display: flex;
+    flex-direction: column;
+    width: 5rem;
+    height: 7vh;
+    font-size: 1rem;
+    text-align: center;
+    background-color: var(--box-color);
+    border: 1.5px solid #516171;
+    margin-left: 6.5rem;
+    border-radius: 3px;
+}
+
+.sidebar__box:first-child {
+    margin-top: 5rem;
+}
+
+.sidebar__box-text {
+    flex: 1;
+}
+
+.sidebar__box-text:first-child {
+    margin-top: .5rem;
+}
+
+.sidebar__box-div {
+    background-color: #516171;
+    color: white;
+}
+
+.sidebar__yellow-text {
+    writing-mode: vertical-lr;
+    font-size: 3rem;
+    color: yellow;
+    letter-spacing: .2rem;
+    background-color: dodgerblue;
+    border-radius: 2rem;
+    padding: 1rem;
+    margin-left: 6rem;
+    transform: rotate(-180deg);
+}
+
+.sidebar__circle {
+    width: 6rem;
+    font-size: 1.2rem;
+    color: yellow;
+    text-align: center;
+    border-radius: 50%;
+    padding: 2.2rem;
+    margin-left: 6rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: black;
+}
+
+/* MAIN CONTENT */
+
+.main {
+    grid-area: 1 / 2 / -1 / -1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(16, 6.25vh);
+    margin: 3rem;
+    font-weight: bold;
+}
+
+hr {
+    grid-area: 9 / 1 / 9 / -1;
+    margin-top: 10px;
+    height: 0;
+}
+
+.text_box {
+    font-size: var(--text-box-text);
+}
+
+.text_box-1 {
+    margin-top: 4rem;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.text_box-header {
+    letter-spacing: 2px;
+    color: green;
+    font-size: 2.2rem;
+}
+ 
+/* TOP GRID ITEMS */
+
+/* ONE */
+
+.bento_box-1 {
+    grid-area: 1 / 2 / 3 / 3;
+    margin: 1rem;
+}
+
+.bento_box-1--image {
+    width: 100%;
+    height: 150px;
+}
+
+.bento_box-1_box {
+    display: flex;
+    width: 100%;
+}
+
+.bento_box-1_box-bold {
+    font-size: 1.5rem;
+    color: red;
+    padding-right: 3px;
+}
+
+/* TWO */
+
+.bento_box-2 {
+    grid-area: 1 / 3 / 9 / 5;
+    background-image: url("../images/lotus.png");
+    background-size: 15%;
+    background-position: 95% 87%;
+    background-repeat: no-repeat;
+}
+
+.bento_box-2--image {
+    object-fit: contain; 
+    width: 100%;
+}
+
+.bento_box-2_box {
+    margin-left: 1rem;
+    line-height: .8;
+    border-left: 1px solid orangered;
+    padding-left: 5px;
+    padding: 3px;
+}
+
+.bento_box-2_box-bold {
+    font-size: 2rem;
+    color: red;
+    text-shadow: 0 0 2px black;
+}
+
+/* INFO ITEM */
+
+.info_box {
+    grid-area: 1 / 5 / 8 / -1;
+    border: 2px dashed red;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.info_box-header {
+    width: 100%;
+    height: 50px;
+}
+
+.float-left {
+    height: 100%;
+    writing-mode: vertical-rl;
+    background-color: green;
+    color: yellow;
+    padding: 5px;
+    float: left;
+    font-size: 2rem;
+}
+
+.float-right {
+    letter-spacing: 2px;
+    background-color: red;
+    color: white;
+    padding: 2px;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.blue-text {
+    color: blue;
+    font-size: 3rem;
+}
+
+.red-text {
+    color: red;
+}
+
+.osaka {
+    width: 100%;
+}
+
+/* GREEN BOX */
+
+.green_box {
+    grid-area: 6 / 1 / 9 / 3;
+    display: flex;
+    background-image: url('data:image/svg+xml,%3Csvg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h16v2h-6v6h6v8H8v-6H2v6H0V0zm4 4h2v2H4V4zm8 8h2v2h-2v-2zm-8 0h2v2H4v-2zm8-8h2v2h-2V4z" fill="yellowgreen" fill-opacity="0.8" fill-rule="evenodd"/%3E%3C/svg%3E');
+    padding: 10px;
+}
+
+.green_box-left {
+    flex: 1fr;
+}
+
+.green_box-left h3:first-child {
+    color: maroon;
+    text-align: center;
+    font-size: 2.5rem;
+    font-style: oblique;
+}
+
+.green_box-left > :last-child {
+    color: purple;
+    font-style: oblique;
+}
+
+.green_box-left > h2 {
+    background-color: fuchsia;
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.green_box-right {
+    flex: 1fr;
+    padding: 5px;
+}
+
+.roll-box {
+    display: flex;
+    align-items: flex-end;
+}
+
+.green_box-right h3:first-child {
+    color: maroon;
+}
+
+.rolls {
+    width: 100px;
+    height: 100px;
+}
+
+/* BOTTOM */
+
+.info_box-2 {
+    grid-area: 9 / 1 / 16 / 3;
+    margin-top: 2rem;
+    border: 2px dashed red;
+    padding: 1rem;
+}
+
+.shibuya {
+    width: 100%;
+}
+
+.info_box-2 div p:first-child {
+    background-color: blue;
+}
+
+/* TWO */
+
+.bento_box-3 {
+    grid-area: 9 / 3 / 16 / 6;
+    background-image: url("../images/lotus.png");
+    background-size: 15%;
+    background-position: 85% 95%;
+    background-repeat: no-repeat;
+    margin-top: 2rem;
+    overflow: hidden;
+    border-right: 1px solid grey;
+}
+
+.bento_box-3--image {
+    position: relative;
+    object-fit: contain; 
+    width: 80%;
+    transform: rotate(3deg) translateX(20px);
+    z-index: -1;
+}
+
+.bento_box-3_box {
+    z-index: 1;
+    margin-top: -1rem;
+    margin-left: 1rem;
+    border-left: 1px solid orangered;
+    padding-left: 5px;
+    padding: 3px;
+}
+
+.bento_box-3_box-bold {
+    font-size: 2rem;
+    color: red;
+    text-shadow: 0 0 3px white;
+}
+
+/* THREE - DESERT */
+
+.desert_box {
+    grid-area: 9 / 6 / 12 / -1;
+}
+
+.header-container {
+    width: 75%;
+    margin-top: 2rem;
+    padding-left: 1rem;
+}
+
+.desert_box_small {
+    padding: 10px;
+}
+
+.small-header {
+    color: fuchsia;
+    font-size: 3rem;
+    border-bottom: 1px solid fuchsia;
+    text-align:center;
+}
+
+.desert_box_medium {
+    width: 80%;
+    margin-top: .5rem;
+}
+
+.circle-inner {
+    background-color: blue;
+    color: yellow;
+    font-size: 3rem;
+    padding: 8px;
+    line-height: .8;
+    border-radius: 50%;
+    float: left;
+    margin-right: 5px;
+}
+
+.medium-header {
+    font-size: 4rem;
+    color: blue;
+}
+
+.dango {
+    width: 100px;
+    height: 150px;
+    float: right;
+    margin-top: 2rem;
+    transform: rotate(8deg);
+    box-shadow: 2px 2px 5px grey;
+}
+
+/*THREE*/
+
+.green_box_2 {
+    grid-area: 13 / 6 / 16 / -1;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    display: flex;
+    background-image: url('data:image/svg+xml,%3Csvg width="12" height="24" viewBox="0 0 12 24" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath d="M2 0h2v12H2V0zm1 20c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM9 8c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-1 4h2v12H8V12z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+}
+
+.jelly {
+    width: 160px;
+    height: 110px;
+}
+
+
+
+
+
+
+
+
+
